@@ -2,23 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   rupees: 20,
+  openSections: [],
 };
 
 const mainSlice = createSlice({
   name: "main",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    setRupees: (state, action) => {
+      state.rupees = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    setValue: (state, action) => {
-      state.value = action.payload;
+    setOpenSections: (state, action) => {
+      state.openSections = [...action.payload];
     },
   },
 });
 
-export const { increment, decrement, setValue } = mainSlice.actions;
+export const { setOpenSections, setRupees } = mainSlice.actions;
+
 export default mainSlice.reducer;
