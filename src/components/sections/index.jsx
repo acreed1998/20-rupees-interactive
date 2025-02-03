@@ -31,14 +31,16 @@ export const Sections = () => {
         </Typography>
       </Grid2>
       {Object.keys(CYOA_DATA.options).map((sectionKey) => {
+        const isSectionOpen = openSections.includes(sectionKey);
         return (
-          <Grid2 key={sectionKey} item size={{ xs: 12, md: 3 }}>
+          <Grid2 key={sectionKey} item size={{ xs: 6, md: 3 }}>
             <Button
+              aria-label={`${
+                isSectionOpen ? "Close" : "Open"
+              } ${sectionKey} Section`}
               fullWidth
               className="normal-case"
-              variant={
-                openSections.includes(sectionKey) ? "contained" : "outlined"
-              }
+              variant={isSectionOpen ? "contained" : "outlined"}
               onClick={onSectionButtonClick(sectionKey)}
             >
               {sectionKey}
