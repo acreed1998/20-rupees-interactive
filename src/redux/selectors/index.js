@@ -5,9 +5,9 @@ export const getState = (state) => {
 };
 
 export const getRupees = createSelector(getState, (state) => {
-  return state?.rupees ?? 0;
+  return Number(state?.rupees ?? 0);
 });
 
 export const getOpenSections = createSelector(getState, (state) => {
-  return state?.openSections ?? [];
+  return [...(state?.openSections ?? [])];
 });
