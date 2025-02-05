@@ -8,7 +8,10 @@ export const MultiButtonChoice = ({
   isSelectedMultiOption,
   onMultiCostOptionClick,
   item,
+  masterSwordPicked,
 }) => {
+  const fiDisabled = item?.title === "Guide" && !masterSwordPicked;
+
   return (
     choiceWithMultipleCosts &&
     !multi && (
@@ -17,9 +20,10 @@ export const MultiButtonChoice = ({
           <Grid2 size={{ xs: 4 }}>
             <Button
               onClick={onMultiCostOptionClick(item?.cost[0])}
-              className="normal-case"
+              className="normal-case h-full"
               fullWidth
-              variant={isSelectedMultiOption[0] ? "contained" : "outlined"}
+              variant={isSelectedMultiOption[0] ? "outlined" : "contained"}
+              disabled={fiDisabled}
             >
               {item?.buttonText?.[0]}
             </Button>
@@ -27,9 +31,9 @@ export const MultiButtonChoice = ({
           <Grid2 size={{ xs: 4 }}>
             <Button
               onClick={onMultiCostOptionClick(item?.cost[1])}
-              className="normal-case"
+              className="normal-case h-full"
               fullWidth
-              variant={isSelectedMultiOption[1] ? "contained" : "outlined"}
+              variant={isSelectedMultiOption[1] ? "outlined" : "contained"}
             >
               {item?.buttonText?.[1]}
             </Button>

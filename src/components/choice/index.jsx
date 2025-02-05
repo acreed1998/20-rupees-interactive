@@ -1,6 +1,6 @@
 import { Card, Grid2, Typography } from "@mui/material";
 import PropTypes from "prop-types";
-import { useChoiceLogic } from "./useChoiceLogic";
+import { useChoiceLogic } from "../../hooks/useChoiceLogic";
 import { MultiButtonChoice } from "./MultiButtonChoice";
 import { MultiPickButtons } from "./MultiPickButtons";
 
@@ -16,6 +16,8 @@ export const Choice = ({ item }) => {
     choiceWithMultipleCosts,
     isSelectedMultiOption,
     selectedChoiceOrItem,
+    selectedChoiceTitles,
+    masterSwordPicked,
   } = useChoiceLogic({ item });
 
   const firstMultiCost = choiceWithMultipleCosts ? cost[0] : cost;
@@ -82,6 +84,8 @@ export const Choice = ({ item }) => {
           onMultiCostOptionClick={onMultiCostOptionClick}
           multi={multi}
           choiceWithMultipleCosts={choiceWithMultipleCosts}
+          selectedChoiceTitles={selectedChoiceTitles}
+          masterSwordPicked={masterSwordPicked}
         />
       </Grid2>
     </Card>
