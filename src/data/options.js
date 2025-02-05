@@ -61,7 +61,7 @@ export const options = {
       text: "One of the three. No one is really sure on what each one does on its own though it does provide great power to its wielder. All pieces together is effective omnipotence.",
       multi: true,
       limit: 20,
-      src: "tf.png",
+      src: "tp.png",
     }),
     createOption({
       title: "Ocarina",
