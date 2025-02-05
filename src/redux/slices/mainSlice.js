@@ -4,6 +4,7 @@ const initialState = {
   rupees: 20,
   openSections: [],
   selectedChoices: [],
+  dialogOpen: false,
 };
 
 const mainSlice = createSlice({
@@ -26,10 +27,18 @@ const mainSlice = createSlice({
         ),
       ];
     },
+    toggleDialogOpen: (state) => {
+      state.dialogOpen = !state.dialogOpen;
+    },
   },
 });
 
-export const { setOpenSections, setRupees, setSelectedChoices, removeFiGuide } =
-  mainSlice.actions;
+export const {
+  setOpenSections,
+  setRupees,
+  setSelectedChoices,
+  removeFiGuide,
+  toggleDialogOpen,
+} = mainSlice.actions;
 
 export default mainSlice.reducer;
