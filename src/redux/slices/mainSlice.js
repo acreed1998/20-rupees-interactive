@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   rupees: 20,
   openSections: [],
+  selectedChoices: [],
 };
 
 const mainSlice = createSlice({
@@ -15,9 +16,13 @@ const mainSlice = createSlice({
     setOpenSections: (state, action) => {
       state.openSections = [...action.payload];
     },
+    setSelectedChoices: (state, action) => {
+      state.selectedChoices = [...action.payload];
+    },
   },
 });
 
-export const { setOpenSections, setRupees } = mainSlice.actions;
+export const { setOpenSections, setRupees, setSelectedChoices } =
+  mainSlice.actions;
 
 export default mainSlice.reducer;

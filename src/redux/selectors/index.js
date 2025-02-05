@@ -11,3 +11,14 @@ export const getRupees = createSelector(getState, (state) => {
 export const getOpenSections = createSelector(getState, (state) => {
   return [...(state?.openSections ?? [])];
 });
+
+export const getSelectedChoices = createSelector(getState, (state) => {
+  return [...(state?.selectedChoices ?? [])];
+});
+
+export const getSelectedChoicesTitles = createSelector(
+  getSelectedChoices,
+  (choices) => {
+    return [...(choices?.map((choice) => choice?.title ?? "") ?? [])];
+  }
+);
