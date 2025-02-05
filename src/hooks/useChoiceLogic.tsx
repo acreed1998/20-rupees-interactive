@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getSelectedChoices,
   getSelectedChoicesTitles,
-} from "../../redux/selectors";
-import { setSelectedChoices } from "../../redux/slices/mainSlice";
+} from "../redux/selectors";
+import { removeFiGuide, setSelectedChoices } from "../redux/slices/mainSlice";
 
 export const useChoiceLogic = ({ item }) => {
   const { title, text, multi, upgradable, cost, buttonText } = item;
@@ -14,6 +14,7 @@ export const useChoiceLogic = ({ item }) => {
   const WrapperComponent = useCard ? Card : Button;
   const selectedChoices = useSelector(getSelectedChoices);
   const selectedChoiceTitles = useSelector(getSelectedChoicesTitles);
+  const masterSwordPicked = selectedChoiceTitles?.includes("Master Sword*");
 
   const selectedChoice = selectedChoices.find((choice) => {
     const equalTitles = choice?.title === title;
@@ -74,6 +75,7 @@ export const useChoiceLogic = ({ item }) => {
       return;
     } else if (selectChoiceNumberOfTimesSelected <= 1 && !add) {
       dispatch(setSelectedChoices([...selectedChoicesWithoutThisChoice]));
+      if (item?.title === "Master Sword*" && !add) dispatch(removeFiGuide());
       return;
     }
     dispatch(
@@ -103,5 +105,6 @@ export const useChoiceLogic = ({ item }) => {
     onMultiPickOptionClick,
     isSelectedMultiOption,
     selectedChoiceOrItem,
+    masterSwordPicked,
   };
 };
