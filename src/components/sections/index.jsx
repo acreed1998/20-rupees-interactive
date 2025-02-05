@@ -37,7 +37,7 @@ export const Sections = () => {
   return (
     <>
       <Grid2 className="mb-8" container justifyContent="center">
-        <Grid2 item size={12}>
+        <Grid2 size={12}>
           <Typography gutterBottom variant="h2">
             Sections
           </Typography>
@@ -45,7 +45,7 @@ export const Sections = () => {
         {sectionKeys.map((sectionKey) => {
           const isSectionOpen = openSections.includes(sectionKey);
           return (
-            <Grid2 key={sectionKey} item size={{ xs: 6, md: 3 }}>
+            <Grid2 key={sectionKey} size={{ xs: 6, md: 3 }}>
               <Button
                 aria-label={`${
                   isSectionOpen ? "Close" : "Open"
@@ -61,7 +61,7 @@ export const Sections = () => {
           );
         })}
       </Grid2>
-      <Grid2 container>
+      <Grid2 className="mb-8" container>
         <Grid2 size={12}>
           <Button
             onClick={toggleAllSections}
