@@ -69,3 +69,7 @@ export const getSelectedChoicesTotalCost = createSelector(
     );
   }
 );
+
+export const getDialogOpen = createSelector(getState, (state) => {
+  return !!state.dialogOpen;
+});
