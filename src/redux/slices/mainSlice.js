@@ -19,10 +19,17 @@ const mainSlice = createSlice({
     setSelectedChoices: (state, action) => {
       state.selectedChoices = [...action.payload];
     },
+    removeFiGuide: (state) => {
+      state.selectedChoices = [
+        ...state.selectedChoices.filter(
+          (choice) => choice?.title !== "Guide" || choice?.cost !== 1
+        ),
+      ];
+    },
   },
 });
 
-export const { setOpenSections, setRupees, setSelectedChoices } =
+export const { setOpenSections, setRupees, setSelectedChoices, removeFiGuide } =
   mainSlice.actions;
 
 export default mainSlice.reducer;

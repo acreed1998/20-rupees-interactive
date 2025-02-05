@@ -143,15 +143,12 @@ export const options = {
     }),
     createOption({
       title: "Guide",
-      cost: 2,
+      cost: [1, 2],
       text: "Link has had many guides in the games from Midna to Navi. You can pick one of them to act as your loyal guide and assistant. Though you can only select Fi with the Master Sword.",
       multi: false,
       limit: 0,
-      discount: {
-        requirement: "Master Sword*",
-        cost: 1,
-      },
       src: "guide.png",
+      buttonText: ["Fi", "Other Guide"],
     }),
     createOption({
       title: "Skill*",
@@ -166,12 +163,16 @@ export const options = {
   "1 Rupee": [
     createOption({
       title: "Character Creator",
-      cost: 1,
+      cost: [1, 2],
       text: "A one time change to your Appearance, Sex, Age and Species that you select now. The species have to be present in the Zelda world. Pay 1 more Rupee to change the appearance of any other items you buy here while keeping its basic function.",
       multi: false,
       limit: 2,
       src: "cc.png",
       upgradable: true,
+      buttonText: [
+        "Appearance Change for Yourself",
+        "Appearance Change for Yourself & Your Items",
+      ],
     }),
     createOption({
       title: "Pet",
