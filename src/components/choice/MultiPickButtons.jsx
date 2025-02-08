@@ -9,19 +9,28 @@ export const MultiPickButtons = ({
   onMultiPickOptionAddClick,
   onMultiPickOptionRemoveClick,
   picked,
+  size = 12,
 }) => {
   return (
     multi && (
-      <Grid2 size={12}>
-        <Typography>{title}</Typography>
+      <Grid2 size={size}>
+        <Typography gutterBottom className="font-bold">
+          {title}
+        </Typography>
         <Grid2 container justifyContent="space-around">
-          <IconButton onClick={onMultiPickOptionAddClick}>
+          <IconButton
+            className="border-black border-solid border-2 text-black"
+            onClick={onMultiPickOptionAddClick}
+          >
             <Add />
           </IconButton>
-          <Typography className="self-center" variant="body1">
+          <Typography className="self-center font-bold" variant="body1">
             {picked ?? 0}
           </Typography>
-          <IconButton onClick={onMultiPickOptionRemoveClick}>
+          <IconButton
+            className="border-black border-solid border-2 text-black"
+            onClick={onMultiPickOptionRemoveClick}
+          >
             <Remove />
           </IconButton>
         </Grid2>
