@@ -1,14 +1,14 @@
 import { Button, Grid2, Typography } from "@mui/material";
 import { CYOA_DATA } from "../../data";
 import { useDispatch, useSelector } from "react-redux";
-import { getOpenSections } from "../../redux/selectors";
+import { getOpenSectionsInSortedOrder } from "../../redux/selectors";
 import { setOpenSections } from "../../redux/slices/mainSlice";
 
 const sectionKeys = Object.keys(CYOA_DATA.options);
 
 export const Sections = () => {
   const dispatch = useDispatch();
-  const openSections = useSelector(getOpenSections);
+  const openSections = useSelector(getOpenSectionsInSortedOrder);
   const numberOfOpenSections = openSections.length;
 
   const onSectionButtonClick =
@@ -36,7 +36,7 @@ export const Sections = () => {
 
   return (
     <>
-      <Grid2 className="mb-8" container justifyContent="center">
+      <Grid2 className="mb-8" container justifyContent="center" spacing={2}>
         <Grid2 size={12}>
           <Typography gutterBottom variant="h2">
             Sections
@@ -51,8 +51,10 @@ export const Sections = () => {
                   isSectionOpen ? "Close" : "Open"
                 } ${sectionKey} Section`}
                 fullWidth
-                className="normal-case"
-                variant={isSectionOpen ? "contained" : "outlined"}
+                className={`normal-case text-black border-black ${
+                  isSectionOpen ? "bg-green-400" : ""
+                }`}
+                variant={"outlined"}
                 onClick={onSectionButtonClick(sectionKey)}
               >
                 {sectionKey}
@@ -65,7 +67,7 @@ export const Sections = () => {
         <Grid2 size={12}>
           <Button
             onClick={toggleAllSections}
-            className="normal-case"
+            className="normal-case text-black border-black"
             variant="outlined"
             fullWidth
           >

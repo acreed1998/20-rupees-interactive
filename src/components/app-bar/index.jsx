@@ -17,7 +17,7 @@ export const AppBar = () => {
   const onIconButtonClick = () => dispatch(toggleDialogOpen());
 
   return (
-    <MUIAppBar className="top-auto bottom-0" position="fixed">
+    <MUIAppBar className="top-auto bottom-0 bg-green-600" position="fixed">
       <Grid2 container justifyContent="space-around">
         <IconButton onClick={onIconButtonClick}>
           <ViewList />

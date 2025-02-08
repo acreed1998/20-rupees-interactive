@@ -20,9 +20,11 @@ export const MultiButtonChoice = ({
           <Grid2 size={{ xs: 4 }}>
             <Button
               onClick={onMultiCostOptionClick(item?.cost[0])}
-              className="normal-case h-full"
+              className={`normal-case h-full ${
+                fiDisabled ? "" : "text-black border-black"
+              } ${isSelectedMultiOption[0] ? "bg-green-600" : ""}`}
               fullWidth
-              variant={isSelectedMultiOption[0] ? "outlined" : "contained"}
+              variant="outlined"
               disabled={fiDisabled}
             >
               {item?.buttonText?.[0]}
@@ -31,9 +33,11 @@ export const MultiButtonChoice = ({
           <Grid2 size={{ xs: 4 }}>
             <Button
               onClick={onMultiCostOptionClick(item?.cost[1])}
-              className="normal-case h-full"
+              className={`normal-case h-full text-black border-black ${
+                isSelectedMultiOption[1] ? "bg-green-600" : ""
+              }`}
               fullWidth
-              variant={isSelectedMultiOption[1] ? "outlined" : "contained"}
+              variant="outlined"
             >
               {item?.buttonText?.[1]}
             </Button>
