@@ -12,6 +12,21 @@ export const getOpenSections = createSelector(getState, (state) => {
   return [...(state?.openSections ?? [])];
 });
 
+export const getOpenSectionsInSortedOrder = createSelector(
+  getOpenSections,
+  (openSections) => {
+    return openSections
+      .sort((sectionKeyA, sectionKeyB) => {
+        const matcher = /^\d+/;
+        return (
+          (sectionKeyA?.match(matcher)?.[0] ?? 0) -
+          (sectionKeyB?.match(matcher)?.[0] ?? 0)
+        );
+      })
+      .reverse();
+  }
+);
+
 export const getSelectedChoices = createSelector(getState, (state) => {
   return [...(state?.selectedChoices ?? [])];
 });
