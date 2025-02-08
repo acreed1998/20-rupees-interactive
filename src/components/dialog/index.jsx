@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDialogOpen } from "../../redux/selectors";
 import { toggleDialogOpen } from "../../redux/slices/mainSlice";
 import { Close } from "@mui/icons-material";
+import { ResultsList } from "../results-list";
 
 export const Dialog = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,9 @@ export const Dialog = () => {
           <Close />
         </IconButton>
       </Grid2>
-      <DialogContent>something</DialogContent>
+      <DialogContent>
+        <ResultsList />
+      </DialogContent>
     </MUIDialog>
   );
 };

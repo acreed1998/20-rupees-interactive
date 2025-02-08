@@ -21,16 +21,17 @@ export const Choice = ({ item }) => {
   } = useChoiceLogic({ item });
 
   const firstMultiCost = choiceWithMultipleCosts ? cost[0] : cost;
+  const isCostAnArray = Array.isArray(cost);
 
   return (
     <Card
-      className={`normal-case h-full ${
-        selectedChoice ? "bg-green-400" : "bg-amber-50"
+      className={`normal-case h-full border border-solid border-black  ${
+        selectedChoice ? "bg-green-400" : "bg-neutral-50"
       } ${useCard ? "px-2 py-1.5" : ""}`}
       component={WrapperComponent}
       {...(!useCard ? { fullWidth: true, onClick: onButtonCardClick } : null)}
     >
-      <Grid2 className="h-full" container spacing={2}>
+      <Grid2 className="h-full" container spacing={2} justifyContent="center">
         <Grid2 size={12}>
           <Grid2 container justifyContent="center">
             <img
@@ -46,35 +47,44 @@ export const Choice = ({ item }) => {
         <Grid2 size={12}>
           <Typography variant="h4">{title}</Typography>
         </Grid2>
-        <MultiPickButtons
-          title={item?.buttonText?.[0]}
-          multi={multi}
-          onMultiPickOptionAddClick={onMultiPickOptionClick(
-            true,
-            firstMultiCost
-          )}
-          onMultiPickOptionRemoveClick={onMultiPickOptionClick(
-            false,
-            firstMultiCost
-          )}
-          picked={
-            choiceWithMultipleCosts
-              ? selectedChoiceOrItem[firstMultiCost]
-              : selectedChoiceOrItem?.selected
-          }
-        />
-        {Array.isArray(cost) && (
-          <MultiPickButtons
-            title={item?.buttonText?.[1]}
-            multi={multi}
-            onMultiPickOptionAddClick={onMultiPickOptionClick(true, cost[1])}
-            onMultiPickOptionRemoveClick={onMultiPickOptionClick(
-              false,
-              cost[1]
+        <Grid2 size={12}>
+          <Grid2 container justifyContent="center">
+            <MultiPickButtons
+              size={isCostAnArray ? 6 : 12}
+              title={item?.buttonText?.[0]}
+              multi={multi}
+              onMultiPickOptionAddClick={onMultiPickOptionClick(
+                true,
+                firstMultiCost
+              )}
+              onMultiPickOptionRemoveClick={onMultiPickOptionClick(
+                false,
+                firstMultiCost
+              )}
+              picked={
+                choiceWithMultipleCosts
+                  ? selectedChoiceOrItem[firstMultiCost]
+                  : selectedChoiceOrItem?.selected
+              }
+            />
+            {Array.isArray(cost) && (
+              <MultiPickButtons
+                title={item?.buttonText?.[1]}
+                multi={multi}
+                onMultiPickOptionAddClick={onMultiPickOptionClick(
+                  true,
+                  cost[1]
+                )}
+                onMultiPickOptionRemoveClick={onMultiPickOptionClick(
+                  false,
+                  cost[1]
+                )}
+                picked={selectedChoiceOrItem[cost[1]]}
+                size={6}
+              />
             )}
-            picked={selectedChoiceOrItem[cost[1]]}
-          />
-        )}
+          </Grid2>
+        </Grid2>
         <Grid2 size={12}>
           <Typography variant="body1">{text}</Typography>
         </Grid2>
