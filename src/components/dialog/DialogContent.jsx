@@ -7,14 +7,15 @@ import {
   DialogContent as MUIDialogContent,
 } from "@mui/material";
 import { ResultsList } from "../results-list";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export const DialogContent = ({ onClose, dialogOpen }) => {
+  const buttonRef = useRef();
   const closeButtonId = "20-rupees-dialog-close-button";
 
   useEffect(() => {
-    if (dialogOpen) {
-      document.getElementById(`${closeButtonId}`)?.focus();
+    if (dialogOpen && buttonRef?.current) {
+      buttonRef?.current?.focus();
     }
   }, [dialogOpen]);
 
@@ -22,7 +23,12 @@ export const DialogContent = ({ onClose, dialogOpen }) => {
     <>
       <Grid2 className="bg-red-500" container justifyContent="space-between">
         <DialogTitle id="20-rupees-dialog-title">Final Build</DialogTitle>
-        <IconButton id={closeButtonId} className="mr-4" onClick={onClose}>
+        <IconButton
+          ref={buttonRef}
+          id={closeButtonId}
+          className="mr-4"
+          onClick={onClose}
+        >
           <Close />
         </IconButton>
       </Grid2>
