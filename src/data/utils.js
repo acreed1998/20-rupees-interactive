@@ -19,7 +19,7 @@ export const createOption = ({
     discount,
     src,
     upgradable,
-    upgraded: 0,
+    upgraded: false,
     buttonText,
   };
 };

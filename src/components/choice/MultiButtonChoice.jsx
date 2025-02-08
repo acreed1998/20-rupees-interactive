@@ -32,7 +32,7 @@ export const MultiButtonChoice = ({
           </Grid2>
           <Grid2 size={{ xs: 4 }}>
             <Button
-              onClick={onMultiCostOptionClick(item?.cost[1])}
+              onClick={onMultiCostOptionClick(item?.cost[1], true)}
               className={`normal-case h-full text-black border-black ${
                 isSelectedMultiOption[1] ? "bg-green-600" : ""
               }`}

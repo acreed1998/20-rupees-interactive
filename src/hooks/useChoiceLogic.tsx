@@ -41,18 +41,20 @@ export const useChoiceLogic = ({ item }) => {
     dispatch(setSelectedChoices([...selectedChoicesWithoutThisChoice]));
   };
 
-  const onMultiCostOptionClick = (cost) => () => {
-    if (selectedChoice?.cost === cost) {
-      dispatch(setSelectedChoices([...selectedChoicesWithoutThisChoice]));
-      return;
-    }
-    dispatch(
-      setSelectedChoices([
-        ...selectedChoicesWithoutThisChoice,
-        { ...item, cost },
-      ])
-    );
-  };
+  const onMultiCostOptionClick =
+    (cost, upgraded = false) =>
+    () => {
+      if (selectedChoice?.cost === cost) {
+        dispatch(setSelectedChoices([...selectedChoicesWithoutThisChoice]));
+        return;
+      }
+      dispatch(
+        setSelectedChoices([
+          ...selectedChoicesWithoutThisChoice,
+          { ...item, cost, upgraded },
+        ])
+      );
+    };
 
   const onMultiPickOptionClick = (add, cost) => () => {
     const costToUse = cost ?? selectedChoiceOrItemCost;
