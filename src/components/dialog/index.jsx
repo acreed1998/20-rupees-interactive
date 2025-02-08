@@ -17,6 +17,7 @@ export const Dialog = () => {
       open={dialogOpen}
       onClose={onClose}
       fullScreen={isSVP}
+      maxWidth={false}
     >
       <DialogContent dialogOpen={dialogOpen} onClose={onClose} />
     </MUIDialog>
