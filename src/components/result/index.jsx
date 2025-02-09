@@ -15,7 +15,6 @@ export const Result = ({ item }) => {
               width={360}
               src={`./${item?.src}`}
               alt={`${title} image`}
-              loading="lazy"
             />
           </Grid2>
         </Grid2>
