@@ -40,11 +40,11 @@ export const Result = ({ item }) => {
               <Card className="min-w-1/2 max-w-1/2 border border-solid border-black">
                 {title === "Skill*" ? (
                   <Typography textAlign="center">
-                    {item[2]} {`Profession${item?.[2] ? "" : "s"}`} to be
+                    {item?.[2] ?? 0} {`Profession${item?.[2] ? "" : "s"}`} to be
                     Skilled in
                     <br />
-                    {item?.[4]} {`Profession${item?.[4] === 1 ? "" : "s"}`} to
-                    be Taught
+                    {item?.[4] ?? 0} {`Profession${item?.[4] === 1 ? "" : "s"}`}{" "}
+                    to be Taught
                   </Typography>
                 ) : (
                   <Typography textAlign="center">

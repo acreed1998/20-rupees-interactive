@@ -95,10 +95,10 @@ export const getSelectedChoicesClipboardText = createSelector(
           return `${choice?.title} - Purchased ${choice?.selected} ${pluralize(
             "time",
             choice?.selected
-          )} (${choice?.[2]} ${pluralize(
+          )} (${choice?.[2] ?? 0} ${pluralize(
             "Profession",
             choice?.[2]
-          )} to be Skilled in | ${choice?.[4]} ${pluralize(
+          )} to be Skilled in | ${choice?.[4] ?? 0} ${pluralize(
             "Profession",
             choice?.[4]
           )} to be Taught)`;
