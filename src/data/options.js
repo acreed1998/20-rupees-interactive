@@ -148,6 +148,7 @@ export const options = {
       multi: false,
       limit: 0,
       src: "guide.png",
+      upgradable: true,
       buttonText: ["Fi", "Other Guide"],
     }),
     createOption({
@@ -181,7 +182,7 @@ export const options = {
       multi: false,
       limit: 2,
       src: "pet.png",
-      upgradable: false,
+      upgradable: true,
       buttonText: ["Normal Animal", "Special Animal"],
     }),
     createOption({
