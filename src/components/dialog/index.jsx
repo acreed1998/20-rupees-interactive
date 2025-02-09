@@ -14,8 +14,10 @@ export const Dialog = () => {
   return (
     <MUIDialog
       aria-labelledby="20-rupees-dialog-title"
+      className="min-w-9/10"
       open={dialogOpen}
       onClose={onClose}
+      slotProps={{ paper: { className: "min-w-3/4" } }}
       fullScreen={isSVP}
       maxWidth={false}
     >
