@@ -8,6 +8,10 @@
   background-color: cornsilk;
 }
 
+.text-outline {
+  -webkit-text-stroke: 1px black;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
