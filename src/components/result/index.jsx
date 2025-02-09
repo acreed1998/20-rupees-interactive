@@ -13,7 +13,7 @@ export const Result = ({ item }) => {
               className="flex h-90 w-auto min-w-60"
               height={360}
               width={360}
-              src={`/${item?.src}`}
+              src={`./${item?.src}`}
               alt={`${title} image`}
               loading="lazy"
             />

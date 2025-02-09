@@ -38,7 +38,7 @@ export const Choice = ({ item }) => {
               className="flex h-90 w-auto"
               height={360}
               width={360}
-              src={`/${src}`}
+              src={`./${src}`}
               alt={`${title} image`}
               loading="lazy"
             />

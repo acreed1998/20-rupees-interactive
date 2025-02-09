@@ -7,7 +7,7 @@ export const Opening = () => {
     <>
       <Grid2 className="mb-8" container justifyContent="center">
         <img
-          src="/red_rupee.png"
+          src="./red_rupee.png"
           alt="Legend of Zelda Red Rupee (Worth 20 Rupees)"
         />
       </Grid2>
