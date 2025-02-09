@@ -68,25 +68,33 @@ export const DialogContent = ({ onClose, dialogOpen }) => {
         </IconButton>
       </Grid2>
       <MUIDialogContent className="px-0">
-        <Grid2 className="mb-8" container justifyContent="space-around">
-          <Button
-            className="border border-solid border-black text-black"
-            variant="outlined"
-            href={buildImageLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            endIcon={<Save />}
-          >
-            Save Image of Build
-          </Button>
-          <Button
-            className="border border-solid border-black text-black"
-            onClick={onCopyBuildButtonClick}
-            variant="outlined"
-            endIcon={<ContentCopy />}
-          >
-            Copy Build Text
-          </Button>
+        <Grid2 className="mb-8" container justifyContent="center" spacing={4}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
+            <Grid2 container justifyContent="center">
+              <Button
+                className="border border-solid border-black text-black min-w-55"
+                variant="outlined"
+                href={buildImageLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                endIcon={<Save />}
+              >
+                Save Image of Build
+              </Button>
+            </Grid2>
+          </Grid2>
+          <Grid2 size={{ xs: 12, md: 6 }}>
+            <Grid2 container justifyContent="center">
+              <Button
+                className="border border-solid border-black text-black min-w-55"
+                onClick={onCopyBuildButtonClick}
+                variant="outlined"
+                endIcon={<ContentCopy />}
+              >
+                Copy Build Text
+              </Button>
+            </Grid2>
+          </Grid2>
         </Grid2>
         <Grid2 ref={dialogContentRef} container spacing={2}>
           <Grid2 size={12}>
