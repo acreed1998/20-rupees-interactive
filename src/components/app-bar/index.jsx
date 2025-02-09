@@ -22,7 +22,7 @@ export const AppBar = () => {
         <IconButton onClick={onIconButtonClick}>
           <ViewList />
         </IconButton>
-        <Typography className="my-4">
+        <Typography className="my-4 font-bold text-lg" variant="body1">
           {initRupees - totalCost} Rupees
         </Typography>
       </Grid2>
