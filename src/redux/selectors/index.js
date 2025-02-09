@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+import pluralize from "pluralize";
 
 export const getState = (state) => {
   return state?.main ?? {};
@@ -82,6 +83,38 @@ export const getSelectedChoicesTotalCost = createSelector(
         );
       }, discount)
     );
+  }
+);
+
+export const getSelectedChoicesClipboardText = createSelector(
+  getSelectedChoices,
+  (selectedChoices) => {
+    return selectedChoices
+      .map((choice) => {
+        if (choice?.title === "Skill*") {
+          return `${choice?.title} - Purchased ${choice?.selected} ${pluralize(
+            "time",
+            choice?.selected
+          )} (${choice?.[2]} ${pluralize(
+            "Profession",
+            choice?.[2]
+          )} to be Skilled in | ${choice?.[4]} ${pluralize(
+            "Profession",
+            choice?.[4]
+          )} to be Taught)`;
+        } else if (choice?.multi) {
+          return `${choice?.title} - Purchased ${choice?.selected} ${pluralize(
+            "time",
+            choice?.selected
+          )}`;
+        } else if (choice?.upgradable) {
+          return `${choice?.title} - ${
+            choice?.upgraded ? choice?.buttonText[1] : choice?.buttonText[0]
+          }`;
+        }
+        return choice?.title;
+      })
+      .join("\n");
   }
 );
 
