@@ -75,6 +75,7 @@ export const DialogContent = ({ onClose, dialogOpen }) => {
                 className="border border-solid border-black text-black min-w-55"
                 variant="outlined"
                 href={buildImageLink}
+                download="build.png"
                 target="_blank"
                 rel="noopener noreferrer"
                 endIcon={<Save />}
