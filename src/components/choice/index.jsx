@@ -26,7 +26,7 @@ export const Choice = ({ item }) => {
   return (
     <Card
       className={`normal-case h-full border border-solid border-black  ${
-        selectedChoice ? "bg-green-400" : "bg-neutral-50"
+        selectedChoice ? "bg-green-400" : "bg-[cornsilk]"
       } ${useCard ? "px-2 py-1.5" : ""}`}
       component={WrapperComponent}
       {...(!useCard ? { fullWidth: true, onClick: onButtonCardClick } : null)}
