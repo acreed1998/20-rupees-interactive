@@ -17,7 +17,7 @@ export const Dialog = () => {
       className="min-w-9/10"
       open={dialogOpen}
       onClose={onClose}
-      slotProps={{ paper: { className: "min-w-3/4" } }}
+      slotProps={{ paper: { className: "bg-[cornsilk] min-w-3/4" } }}
       fullScreen={isSVP}
       maxWidth={false}
     >

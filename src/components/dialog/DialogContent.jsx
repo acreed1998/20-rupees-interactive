@@ -97,13 +97,18 @@ export const DialogContent = ({ onClose, dialogOpen }) => {
             </Grid2>
           </Grid2>
         </Grid2>
-        <Grid2 ref={dialogContentRef} container spacing={2}>
-          <Grid2 size={12}>
+        <Grid2
+          className="bg-[cornsilk]"
+          ref={dialogContentRef}
+          container
+          spacing={2}
+        >
+          <Grid2 className="bg-[cornsilk]" size={12}>
             <Typography variant="h2" textAlign="center">
               Purchases
             </Typography>
           </Grid2>
-          <Grid2 className="px-8" size={12}>
+          <Grid2 className="bg-[cornsilk] px-8" size={12}>
             <ResultsList dialogContentRef={dialogContentRef} />
           </Grid2>
         </Grid2>
