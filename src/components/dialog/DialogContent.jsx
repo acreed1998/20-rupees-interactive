@@ -67,7 +67,7 @@ export const DialogContent = ({ onClose, dialogOpen }) => {
           <Close />
         </IconButton>
       </Grid2>
-      <MUIDialogContent className="px-0">
+      <MUIDialogContent className="px-0" tabIndex={-1}>
         <Grid2 className="mb-8" container justifyContent="center" spacing={4}>
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Grid2 container justifyContent="center">
