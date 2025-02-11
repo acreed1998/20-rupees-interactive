@@ -17,6 +17,7 @@ export const Opening = () => {
       <Typography className="mb-8" variant="caption" component="p">
         Original{" "}
         <Link
+          className="opening-links"
           aria-label="Link to original CYOA, click to open in new tab"
           target="_blank"
           rel="noopener noreferrer"
@@ -27,6 +28,7 @@ export const Opening = () => {
         </Link>{" "}
         by{" "}
         <Link
+          className="opening-links"
           aria-label="Link to original CYOA creator OSA's Reddit profile, click to open in new tab"
           target="_blank"
           rel="noopener noreferrer"

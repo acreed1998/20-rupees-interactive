@@ -19,7 +19,10 @@ export const AppBar = () => {
   return (
     <MUIAppBar className="top-auto bottom-0 bg-green-600" position="fixed">
       <Grid2 container justifyContent="space-around">
-        <IconButton onClick={onIconButtonClick}>
+        <IconButton
+          aria-label="Open modal showing purchases made"
+          onClick={onIconButtonClick}
+        >
           <ViewList />
         </IconButton>
         <Typography

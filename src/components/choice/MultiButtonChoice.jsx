@@ -10,7 +10,11 @@ export const MultiButtonChoice = ({
   item,
   masterSwordPicked,
 }) => {
-  const fiDisabled = item?.title === "Guide" && !masterSwordPicked;
+  const title = item?.title;
+  const fiDisabled = title === "Guide" && !masterSwordPicked;
+
+  const firstOption = item?.buttonText?.[0];
+  const secondOption = item?.buttonText?.[1];
 
   return (
     choiceWithMultipleCosts &&
@@ -19,6 +23,7 @@ export const MultiButtonChoice = ({
         <Grid2 container justifyContent="space-around">
           <Grid2 size={{ xs: 4 }}>
             <Button
+              aria-label={`Purchase ${firstOption} for ${title}`}
               onClick={onMultiCostOptionClick(item?.cost[0])}
               className={`normal-case h-full ${
                 fiDisabled ? "" : "text-black border-black"
@@ -32,6 +37,7 @@ export const MultiButtonChoice = ({
           </Grid2>
           <Grid2 size={{ xs: 4 }}>
             <Button
+              aria-label={`Purchase ${secondOption} for ${title}`}
               onClick={onMultiCostOptionClick(item?.cost[1], true)}
               className={`normal-case h-full text-black border-black ${
                 isSelectedMultiOption[1] ? "bg-green-600" : ""

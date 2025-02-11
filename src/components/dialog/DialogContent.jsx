@@ -60,6 +60,7 @@ export const DialogContent = ({ onClose, dialogOpen }) => {
         <DialogTitle id="20-rupees-dialog-title">Final Build</DialogTitle>
         <IconButton
           ref={buttonRef}
+          aria-label="Close Final Build Modal"
           id={closeButtonId}
           className="mr-4"
           onClick={onClose}

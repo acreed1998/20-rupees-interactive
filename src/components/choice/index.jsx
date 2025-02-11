@@ -20,6 +20,7 @@ export const Choice = ({ item }) => {
     masterSwordPicked,
   } = useChoiceLogic({ item });
 
+  const descriptionId = `choice-card-${title}-description`;
   const firstMultiCost = choiceWithMultipleCosts ? cost[0] : cost;
   const isCostAnArray = Array.isArray(cost);
 
@@ -29,7 +30,14 @@ export const Choice = ({ item }) => {
         selectedChoice ? "bg-green-400" : "bg-[cornsilk]"
       } ${useCard ? "px-2 py-1.5" : ""}`}
       component={WrapperComponent}
-      {...(!useCard ? { fullWidth: true, onClick: onButtonCardClick } : null)}
+      {...(!useCard
+        ? {
+            fullWidth: true,
+            onClick: onButtonCardClick,
+            "aria-label": `${selectedChoice ? "Return" : "Purchase"} ${title}`,
+            "aria-describedby": descriptionId,
+          }
+        : null)}
     >
       <Grid2 className="h-full" container spacing={2} justifyContent="center">
         <Grid2 size={12}>
@@ -50,6 +58,7 @@ export const Choice = ({ item }) => {
         <Grid2 size={12}>
           <Grid2 container justifyContent="center">
             <MultiPickButtons
+              item={item}
               size={isCostAnArray ? 6 : 12}
               title={item?.buttonText?.[0]}
               multi={multi}
@@ -69,6 +78,7 @@ export const Choice = ({ item }) => {
             />
             {Array.isArray(cost) && (
               <MultiPickButtons
+                item={item}
                 title={item?.buttonText?.[1]}
                 multi={multi}
                 onMultiPickOptionAddClick={onMultiPickOptionClick(
@@ -86,7 +96,9 @@ export const Choice = ({ item }) => {
           </Grid2>
         </Grid2>
         <Grid2 size={12}>
-          <Typography variant="body1">{text}</Typography>
+          <Typography id={descriptionId} variant="body1">
+            {text}
+          </Typography>
         </Grid2>
         <MultiButtonChoice
           item={item}

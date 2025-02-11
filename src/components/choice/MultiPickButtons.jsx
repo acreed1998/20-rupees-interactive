@@ -4,6 +4,7 @@ import { Add, Remove } from "@mui/icons-material";
 import { Grid2, IconButton, Typography } from "@mui/material";
 
 export const MultiPickButtons = ({
+  item,
   title,
   multi,
   onMultiPickOptionAddClick,
@@ -11,14 +12,19 @@ export const MultiPickButtons = ({
   picked,
   size = 12,
 }) => {
+  const { title: itemTitle } = item;
+
   return (
     multi && (
       <Grid2 size={size}>
-        <Typography gutterBottom className="font-bold">
-          {title}
-        </Typography>
+        {title && (
+          <Typography gutterBottom className="font-bold">
+            {title}
+          </Typography>
+        )}
         <Grid2 container justifyContent="space-around">
           <IconButton
+            aria-label={`Purchase ${title ?? itemTitle} once`}
             className="border-black border-solid border-2 text-black"
             onClick={onMultiPickOptionAddClick}
           >
@@ -28,6 +34,7 @@ export const MultiPickButtons = ({
             {picked ?? 0}
           </Typography>
           <IconButton
+            aria-label={`Return ${title ?? itemTitle} once`}
             className="border-black border-solid border-2 text-black"
             onClick={onMultiPickOptionRemoveClick}
           >

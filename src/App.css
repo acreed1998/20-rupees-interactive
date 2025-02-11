@@ -12,6 +12,10 @@
   -webkit-text-stroke: 1px black;
 }
 
+.opening-links {
+  color: #1873cd !important;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
