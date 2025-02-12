@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import { Add, Remove } from "@mui/icons-material";
+import Add from "@mui/icons-material/Add";
+import Remove from "@mui/icons-material/Remove";
 import { Grid2, IconButton, Typography } from "@mui/material";
 
 export const MultiPickButtons = ({

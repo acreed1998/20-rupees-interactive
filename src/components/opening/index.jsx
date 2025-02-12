@@ -1,6 +1,6 @@
 import { Grid2, Link, Typography } from "@mui/material";
 import { CYOA_DATA } from "../../data";
-import { NorthEast } from "@mui/icons-material";
+import NorthEast from "@mui/icons-material/NorthEast";
 
 export const Opening = () => {
   return (
